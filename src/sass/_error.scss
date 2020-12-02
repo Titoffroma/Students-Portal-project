@@ -11,11 +11,11 @@
     transform: translateY(30px);
   }
   40% {
-    color: #ccc;
+    color: $grey;
     opacity: 0.9;
   }
   60% {
-    color: #fff;
+    color: $white;
   }
   80% {
     opacity: 0.9;
@@ -27,7 +27,7 @@
 }
 
 .error {
-  animation: fadein 5s ease 1 forwards;
+  animation: fadein 5s cubic-bezier(0.4, 0, 0.2, 1) 1 forwards;
 }
 body > .pnotify.pnotify-positioned.error {
   position: fixed;
@@ -36,13 +36,10 @@ body > .pnotify.pnotify-positioned.error {
   left: 0;
   display: flex;
   justify-content: center;
-  z-index: 0;
+  z-index: 10;
   & .material-container {
     border-radius: 0 0 8px 8px;
     padding-top: 100px;
-    @media screen and (min-width: 768px) {
-      padding-top: 40px;
-    }
-    color: rgb(83, 6, 6);
+    color: $main-red;
   }
 }
