@@ -1,0 +1,38 @@
+.notification-center {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px;
+  background-color: rgba(161, 161, 161, 0.185);
+  width: 400px;
+  height: 100vh;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+
+  transition: transform 500ms ease;
+}
+.notification {
+  width: 100%;
+  padding: 10px;
+  background-color: #c0a4a4;
+  margin-top: 2px;
+  transition: transform 500ms ease, opacity 500ms ease;
+  &__title {
+  }
+  &__text {
+  }
+  &--error {
+  }
+  &--message {
+  }
+  &--hide {
+    transform: scale(0) translateX(-100%);
+  }
+  &--remove {
+    opacity: 0.2;
+    z-index: 1000;
+    transform: translateY(-500px);
+  }
+}
