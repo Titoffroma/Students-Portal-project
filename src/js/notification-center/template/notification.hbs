@@ -1,6 +1,5 @@
-<div class="notification" data-notification-id={{id}} style="background-color: {{color}};">
-    <i class="material-icons">{{icon}}</i>
-    <h2 class="notification__title">{{title}}</h2>
+<div class="notification notification--create" data-notification-id={{id}} style="border-color: {{color}};">
+    <h2 class="notification__title"><i class="material-icons notification__icon">{{icon}}</i>{{title}}</h2>
     <p class="notification__text">{{text}}</p>
-    <button name="close"><i class="material-icons">delete_forever</i></button>
+    <button class="notification__button" name="close"><i class="material-icons">delete_forever</i></button>
 </div>

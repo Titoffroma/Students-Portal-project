@@ -4,16 +4,38 @@ import 'material-design-icons/iconfont/material-icons.css';
 
 import { notificationCenter } from './js/notification-center';
 
-notificationCenter.message({ text: 'Message test', title: 'OK' });
-notificationCenter.error({ text: 'test Error' });
-notificationCenter.error({ text: 'test Error 2' });
+// notificationCenter.setNotificationCenterWidth('30vw');
 
-// setTimeout(() => {
-//   notificationCenter.removeMessage(0);
-// }, 5000);
+notificationCenter.message({ text: 'Standart message' });
+notificationCenter.error({ text: 'Standart error' });
+notificationCenter.error({ text: 'Error. Different icon', icon: 'fiber_new' });
+
+for (let i = 0; i < 4; i++) {
+  setTimeout(() => {
+    if (i % 2 === 0) {
+      notificationCenter.message({
+        text: 'Message with different title',
+        title: i,
+      });
+      return;
+    }
+    notificationCenter.error({
+      text: 'Error with different title',
+      title: i,
+    });
+  }, i * 1000);
+}
 setTimeout(() => {
-  notificationCenter.message({ text: 'Message test', title: 'OK' });
+  notificationCenter.message({
+    text: 'Message. delay 10s. Different color',
+    icon: 'stay_current_portrait',
+    color: 'blue',
+  });
 }, 10000);
 setTimeout(() => {
-  notificationCenter.error({ text: 'test Error' });
+  notificationCenter.error({
+    text: 'Error. delay 20s. Different color',
+    icon: 'report',
+    color: 'yellow',
+  });
 }, 20000);
