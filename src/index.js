@@ -8,8 +8,11 @@ import { notificationCenter } from './js/notification-center';
 
 notificationCenter.message({ text: 'Standart message' });
 notificationCenter.error({ text: 'Standart error' });
-notificationCenter.error({ text: 'Error. Different icon', icon: 'fiber_new' });
-
+const messageId = notificationCenter.error({
+  text: 'Error. Different icon',
+  icon: 'fiber_new',
+});
+console.log('We can remember the message ID', messageId);
 for (let i = 0; i < 4; i++) {
   setTimeout(() => {
     if (i % 2 === 0) {
@@ -39,3 +42,8 @@ setTimeout(() => {
     color: 'yellow',
   });
 }, 20000);
+
+setTimeout(() => {
+  notificationCenter.removeMessage(messageId);
+  console.log('After that we can delete the message with ID', messageId);
+}, 5000);

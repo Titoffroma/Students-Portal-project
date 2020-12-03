@@ -8,31 +8,85 @@ const MESSAGE_COLOR = 'rgba(123, 0, 255, 0.6)';
 
 class Notification {
   constructor() {
-    this.addNotificationCenter();
+    this._addNotificationCenter();
+    this._addNotificationCenterOpenButton();
     this._heapOfMessages = {};
   }
-  addNotificationCenter() {
-    this._box = document.createElement('div');
-    this._box.classList.add('notification-center');
-    this._box.classList.add('notification-center--hide');
-
-    document.body.append(this._box);
-    this._closeBox = document.createElement('button');
-    this._closeBox.classList.add('notification-center__button');
-    this._closeBox.innerHTML = '<i class="material-icons">clear</i>';
-    this._box.append(this._closeBox);
-    this._closeBox.addEventListener('click', () => {
-      this.hideNotificationCenter();
+  _addNotificationCenter() {
+    this._createNotificationCenter();
+    this._createHideBoxButton();
+    this._createClearAllButton();
+  }
+  _createNotificationCenter() {
+    this._notificationCenter = document.createElement('div');
+    this._notificationCenter.classList.add('notification-center');
+    this._notificationCenter.classList.add('notification-center--hide');
+    document.body.append(this._notificationCenter);
+  }
+  _createHideBoxButton() {
+    this._hideBox = document.createElement('button');
+    this._hideBox.classList.add('notification-center__hide-button');
+    this._hideBox.innerHTML = '<i class="material-icons">visibility_off</i>';
+    this._notificationCenter.append(this._hideBox);
+    this._hideBox.addEventListener('click', () => {
+      this._hideNotificationCenter();
+      this._showNotificationCenterOpenButton();
     });
   }
-  showNotificationCenter() {
-    this._box.classList.remove('notification-center--hide');
+  _createClearAllButton() {
+    this._clearAll = document.createElement('button');
+    this._clearAll.classList.add('notification-center__clear-button');
+    this._clearAll.innerHTML = '<i class="material-icons">delete</i>';
+    this._notificationCenter.append(this._clearAll);
+    this._clearAll.addEventListener('click', this._clearAllMessages.bind(this));
   }
-  hideNotificationCenter() {
-    this._box.classList.add('notification-center--hide');
+  _showNotificationCenter() {
+    this._notificationCenter.classList.remove('notification-center--hide');
+    this._ifNoMessages();
+  }
+  _hideNotificationCenter() {
+    this._notificationCenter.classList.add('notification-center--hide');
+  }
+  _ifNoMessages() {
+    if (!this._isHeapOfMessagesEmpty()) return;
+    const messageId = this.error({
+      text: '',
+      title: 'NO MORE MESSAGES',
+      icon: 'search',
+    });
+    setTimeout(this.removeMessage.bind(this, messageId), 1000);
+  }
+  _addNotificationCenterOpenButton() {
+    this._notificationCenterOpenButton = document.createElement('button');
+    this._notificationCenterOpenButton.classList.add(
+      'notification-center__open-button',
+    );
+    this._notificationCenterOpenButton.innerHTML =
+      '<i class="material-icons">visibility</i>';
+    document.body.append(this._notificationCenterOpenButton);
+    this._notificationCenterOpenButton.addEventListener('click', () => {
+      this._hideNotificationCenterOpenButton();
+      this._showNotificationCenter();
+    });
+  }
+  _hideNotificationCenterOpenButton() {
+    this._notificationCenterOpenButton.classList.add(
+      'notification-center__open-button--hide',
+    );
+  }
+  _showNotificationCenterOpenButton() {
+    this._notificationCenterOpenButton.classList.remove(
+      'notification-center__open-button--hide',
+    );
+  }
+  _hideNotificationCenterIfHeapEmpty() {
+    if (this._isHeapOfMessagesEmpty()) {
+      this._hideNotificationCenter();
+      this._showNotificationCenterOpenButton();
+    }
   }
   setNotificationCenterWidth(width) {
-    this._box.style.width = width;
+    this._notificationCenter.style.width = width;
   }
   message({
     text = '',
@@ -41,14 +95,15 @@ class Notification {
     color = MESSAGE_COLOR,
   }) {
     const id = Date.now() * Math.random();
-    this._box.insertAdjacentHTML(
+    this._notificationCenter.insertAdjacentHTML(
       'beforeend',
       notification({ id, icon, title, text, color }),
     );
-    this.showNotificationCenter();
-    this.addToHeapOfMessages(id);
-    this.addCloseButtonListener(id);
-    this.showMessage(id);
+    this._addToHeapOfMessages(id);
+    this._addCloseButtonListener(id);
+    this._showNotificationCenter();
+    this._hideNotificationCenterOpenButton();
+    this._showMessage(id);
 
     return id;
   }
@@ -58,42 +113,44 @@ class Notification {
     icon = ERROR_ICON,
     color = ERROR_COLOR,
   }) {
-    this.message({ text, title, icon, color });
+    return this.message({ text, title, icon, color });
   }
-  addCloseButtonListener(id) {
+  _addCloseButtonListener(id) {
     this._heapOfMessages[id]
       .querySelector('button')
-      .addEventListener('click', () => {
-        this.removeMessage(id);
-      });
+      .addEventListener('click', this.removeMessage.bind(this, id));
   }
   removeMessage(id) {
+    if (this._heapOfMessages[id] === undefined) return;
     this._heapOfMessages[id].classList.add('notification--remove');
     setTimeout(() => {
-      this.removeMessageFromNotificationCenter(id);
-      this.removeMessageFromHeap(id);
-      if (this.isHeapOfMessagesEmpty()) {
-        this.hideNotificationCenter();
-      }
+      this._removeMessageFromNotificationCenter(id);
+      this._removeMessageFromHeap(id);
+      this._hideNotificationCenterIfHeapEmpty();
     }, 500);
   }
-  showMessage(id) {
+  _clearAllMessages() {
+    for (const key in this._heapOfMessages) {
+      this.removeMessage(key);
+    }
+  }
+  _showMessage(id) {
     setTimeout(() => {
       this._heapOfMessages[id].classList.remove('notification--create');
     }, 20);
   }
-  addToHeapOfMessages(id) {
+  _addToHeapOfMessages(id) {
     this._heapOfMessages[id] = document.querySelector(
       `.notification[data-notification-id="${id}"`,
     );
   }
-  removeMessageFromHeap(id) {
+  _removeMessageFromHeap(id) {
     delete this._heapOfMessages[id];
   }
-  removeMessageFromNotificationCenter(id) {
+  _removeMessageFromNotificationCenter(id) {
     this._heapOfMessages[id].remove();
   }
-  isHeapOfMessagesEmpty() {
+  _isHeapOfMessagesEmpty() {
     return Object.keys(this._heapOfMessages).length === 0 ? true : false;
   }
 }

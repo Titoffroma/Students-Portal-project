@@ -3,22 +3,48 @@
   bottom: 1vh;
   right: 1vw;
   padding: 2px;
+  padding-bottom: 30px;
   width: 400px;
   overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
+  flex-wrap: wrap;
   background: transparent;
   border-radius: 10px;
   box-shadow: 0px 0px 38px 0px rgba(0, 0, 0, 0.75);
 
   transition: transform 250ms ease;
+  & button {
+    cursor: pointer;
+  }
   &--hide {
-    transform: scale(0);
+    transform: scale(0) translateX(-100%);
     opacity: 0.5;
   }
-  &__button {
+  &__hide-button,
+  &__clear-button {
+    position: absolute;
+    bottom: 2px;
+    width: 50%;
     border: none;
     background-color: transparent;
+  }
+  &__hide-button {
+    right: 2px;
+  }
+  &__clear-button {
+    left: 2px;
+  }
+  &__open-button {
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    bottom: 1vh;
+    right: 1vw;
+    &--hide {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 .notification {
@@ -40,11 +66,12 @@
   }
   &__button {
     position: absolute;
-    top: 10px;
+    top: 50%;
     right: 10px;
     padding: 10px;
     border: none;
     background-color: transparent;
+    transform: translateY(-50%);
   }
   &--create {
     opacity: 0.2;
@@ -52,7 +79,6 @@
   }
   &--remove {
     opacity: 0.2;
-    // z-index: 1000;
     transform: translateX(-100%) scale(0);
   }
 }
