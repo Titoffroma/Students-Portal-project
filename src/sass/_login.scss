@@ -1,0 +1,204 @@
+.register-section {
+  padding: 148px 20px 0;
+
+  background-image: url('../img/portal-bg@1x.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    & {
+      background-image: url('../img/portal-bg@2x.png');
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 200px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 100px;
+  }
+}
+
+.register-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 335px;
+  min-height: 380px;
+
+  background: $white;
+  border: 1px solid $main-blue;
+  box-shadow: -4px 4px 16px 4px rgba(42, 0, 94, 0.25);
+  border-radius: 16px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.17;
+  color: $main-blue;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    width: 514px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 610px;
+  }
+}
+
+.register-container__title {
+  margin: 26px 0;
+  font-size: 24px;
+
+  @media screen and (min-width: $tablet) {
+    margin: 49px 0;
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 54px 0;
+  }
+}
+
+.register-container__form {
+  padding: 30px 67px;
+  width: 100%;
+  text-align: left;
+
+  border-top: 1px solid $main-blue;
+  border-bottom: 1px solid $main-blue;
+
+  @media screen and (min-width: $tablet) {
+    padding: 56px 105px 20px;
+  }
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 25px;
+  padding: 17px 0 9px 15px;
+
+  border: 2px solid #726180;
+  border-radius: 8px;
+
+  font-weight: normal;
+  font-size: 12px;
+
+  color: $border;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(15px, -100%);
+
+  font-weight: normal;
+  font-size: 12px;
+  color: rgba(115, 98, 150, 0.6);
+
+  transition: color 250ms $transition, transform 250ms $transition;
+
+  .form-field:focus-within &,
+  .form-input:not(:placeholder-shown) + & {
+    transform: translate(0, -50px);
+    color: $main-purple;
+
+    @media screen and (min-width: $tablet) {
+      transform: translate(0, -60px);
+    }
+
+    @media screen and (min-width: $desktop) {
+      transform: translate(0, -70px);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    transform: translate(15px, -120%);
+    font-size: 18px;
+  }
+}
+
+.login-button {
+  @extend %button;
+  border: none;
+
+  &.disabled {
+    background: $grey;
+    border: 1px solid $main-blue;
+
+    &:hover,
+    &:focus {
+      filter: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.5));
+  }
+
+  &:active {
+    background: $dark-blue;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 15px;
+    font-size: 24px;
+  }
+}
+
+.register-container__footer {
+  @media screen and (min-width: $tablet) {
+    padding: 32px 57px 80px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.register-container__title.footer {
+  margin: 10px 0;
+  font-size: 18px;
+  color: $secondary-blue;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    font-size: 24px;
+  }
+}
+
+.register-container__link {
+  display: block;
+  margin-bottom: 26px;
+  font-size: 20px;
+  line-height: 1.15;
+
+  color: $main-blue;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    font-size: 24px;
+  }
+}

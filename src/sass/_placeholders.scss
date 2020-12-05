@@ -1,0 +1,21 @@
+%button {
+  min-width: 120px;
+  padding: 10px 0;
+
+  color: $white;
+  background-color: $main-blue;
+  border-radius: 8px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.17;
+
+  @media screen and (min-width: $tablet) {
+    min-width: 177px;
+    padding: 17px 0;
+
+    font-size: 24px;
+  }
+}
