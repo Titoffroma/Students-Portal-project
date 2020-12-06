@@ -1,0 +1,619 @@
+ul,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header {
+  display: flex;
+
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  padding: 10px 20px 10px 32px;
+
+  box-shadow: 0px 10px 10px rgba(89, 33, 133, 0.5);
+
+  background-color: $white;
+
+  @media screen and (min-width: $tablet) {
+    padding: 15px 20px 10px 68px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 20px 125px 0px 125px;
+  }
+}
+
+.logo-container {
+  margin-right: 68px;
+  @media screen and (min-width: $desktop) {
+    margin-right: 112px;
+  }
+}
+.logo-img {
+  width: 74px;
+  height: 30px;
+  @media screen and (min-width: $tablet) {
+    width: 98px;
+    height: 40px;
+  }
+}
+
+.header-list {
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-list-item {
+  width: 87px;
+  padding: 22px 19px 16px;
+  text-align: center;
+}
+
+.header-list-item:not(:last-child) {
+  @media screen and (min-width: $desktop) {
+    margin-right: 21px;
+  }
+}
+
+.header-nav {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 234px;
+  }
+  @media screen and (min-width: $desktop) {
+    position: static;
+    display: block;
+  }
+}
+
+.header-login {
+  @media screen and (min-width: $desktop) {
+    margin-right: 37px;
+  }
+}
+
+.header-list-link {
+  font-family: Roboto;
+  font-style: $normal;
+  font-weight: $medium;
+  font-size: 18px;
+  line-height: 21px;
+  color: $secondary-blue;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header-input-box {
+  display: flex;
+  margin-left: auto;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: column-reverse;
+  }
+  @media screen and (min-width: $desktop) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.header-input-container {
+  margin-left: auto;
+
+  margin-right: 10px;
+  @media screen and (min-width: $tablet) {
+    margin-right: 0px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 90px;
+  }
+}
+
+.header-input {
+  padding: 18px 10px 8px;
+  color: $main-blue;
+  width: 177px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid $secondary-blue;
+  background: $grey;
+  @media screen and (min-width: $tablet) {
+    padding: 18px 20px 8px;
+    width: 194px;
+    height: 40px;
+  }
+}
+
+.header-input::placeholder {
+  font-weight: $normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: $secondary-blue;
+}
+
+.header-registration {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.btn-registr {
+  font-style: $normal;
+  font-weight: $bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: $main-blue;
+
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: transparent;
+  border-color: transparent;
+  @media screen and (min-width: $tablet) {
+    padding: 10px 15px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 10px 37px;
+  }
+}
+
+.btn-registr:hover {
+  background: $main-blue;
+  color: $white;
+}
+
+.header-btn {
+  position: static;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.header-mobile-button {
+  background: $grey;
+  border-radius: 8px;
+  border: 1px solid rgba(115, 98, 150, 0.6);
+}
+
+.main {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(123, 97, 255, 0.5) 100%
+    ),
+    #ebdbff;
+
+  display: flex;
+  padding-top: 53px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 110px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 105px;
+  }
+}
+
+.main-porfolio {
+  width: 98px;
+  margin-right: 20px;
+  border: $border;
+  background-color: $white;
+
+  @media screen and (min-width: $tablet) {
+    width: 194px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 295px;
+  }
+}
+
+.main-portfolio-photo {
+  padding: 31px 20px 15px 20px;
+  text-align: center;
+  width: 94px;
+  @media screen and (min-width: $tablet) {
+    padding: 20px 45px;
+    width: 194px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 40px 67px 24px;
+    width: 295px;
+  }
+}
+
+.main-portfolio-img {
+  width: 58px;
+  margin-bottom: 10px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 20px;
+    width: 90px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 154px;
+  }
+}
+
+.main-portfolio-name {
+  font-family: $Roboto;
+  font-style: $normal;
+
+  text-align: center;
+
+  color: $main-purple;
+  font-size: 12px;
+  line-height: 14px;
+  margin-bottom: 3px;
+  font-weight: $black;
+  @media screen and (min-width: $tablet) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
+    line-height: 42px;
+    margin-bottom: 10px;
+  }
+}
+
+.main-portfolio-info {
+  font-style: $it;
+  font-weight: $medium;
+  font-size: 10px;
+  line-height: 12px;
+  color: $bg-purple;
+  @media screen and (min-width: $tablet) {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+    line-height: 14px;
+  }
+}
+
+.main-portfolio-skills {
+  background-color: rgba(123, 97, 255, 0.5);
+  border: $border;
+  padding: 15px 4px;
+  @media screen and (min-width: $tablet) {
+    padding: 15px 12px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 25px 30px;
+  }
+}
+
+.main-portfolio-skills-container {
+  position: relative;
+  padding: 15px 10px 45px;
+  background-color: $white;
+  box-shadow: 0px 10px 10px rgba(89, 33, 133, 0.5);
+  border-radius: 18px;
+  @media screen and (min-width: $tablet) {
+    padding: 15px 17px 45px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 18px 30px 45px;
+  }
+}
+
+.main-portfolio-skills-tittle {
+  text-align: center;
+  font-family: $Roboto;
+  margin-bottom: 10px;
+  color: $main-purple;
+  font-style: $normal;
+  font-weight: $black;
+  font-size: 10px;
+  line-height: 12px;
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+.main-portf-skils-subtittle {
+  text-align: left;
+  font-family: $Roboto;
+  font-style: $normal;
+  font-weight: $medium;
+
+  color: $secondary-blue;
+  font-size: 10px;
+  line-height: 12px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+.skils-subtittle-text {
+  text-align: center;
+  @media screen and (min-width: $tablet) {
+    text-align: left;
+  }
+}
+
+.main-portf-skills-item {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.main-portfolio-skills-btn {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0, 124, 239, 0.5);
+  border-radius: 8px 0px 18px;
+  width: 60px;
+  height: 20px;
+  font-style: $normal;
+  font-weight: $bold;
+  font-size: 8px;
+  line-height: 9px;
+
+  color: $white;
+}
+.main-portfolio-about {
+  padding: 15px 4px;
+  @media screen and (min-width: $tablet) {
+    padding: 15px 12px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 25px 30px;
+  }
+}
+
+.main-portfolio-about-container {
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 10px 10px rgba(89, 33, 133, 0.5);
+  border-radius: 18px;
+  padding: 15px 10px 45px;
+  @media screen and (min-width: $tablet) {
+    padding: 15px 15px 45px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 18px 30px 45px;
+  }
+}
+
+.btn {
+  width: 60px;
+  height: 20px;
+  background: $secondary-blue;
+  border-radius: 8px 0px 18px;
+  border: 0px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0, 124, 239, 0.5);
+  border-radius: 8px 0px 18px;
+
+  font-family: $Roboto;
+  font-style: $normal;
+  font-weight: $bold;
+  font-size: 8px;
+  line-height: 9px;
+  color: $white;
+  @media screen and (min-width: $tablet) {
+    width: 96px;
+    height: 39px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: $main-blue;
+}
+
+.icon-like {
+  fill: transparent;
+}
+.icon-like:hover {
+  cursor: pointer;
+  fill: $main-blue;
+}
+
+.main-dashboard {
+  background-color: $white;
+  padding: 0px 5px;
+  @media screen and (min-width: $tablet) {
+    padding: 0px 7px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 20px 105px;
+  }
+}
+
+.main-dashboard-container {
+  margin-bottom: 10px;
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 40px;
+  }
+}
+
+.main-dashboard-container-item {
+  position: relative;
+  box-shadow: 0px 10px 10px rgba(89, 33, 133, 0.5);
+  border-radius: 18px;
+  padding: 20px 16px 0px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding: 20px 25px;
+  }
+}
+
+.main-dashboard-question-title {
+  font-family: $Roboto;
+  font-style: $normal;
+  font-weight: $black;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: $main-purple;
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+    line-height: 23px;
+    padding-left: 150px;
+    text-align: right;
+  }
+}
+
+.main-dashboard-question-text {
+  padding: 15px 24px 10px;
+  font-family: $Roboto;
+  font-style: $normal;
+  font-weight: $normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: $dark-grey;
+
+  @media screen and (min-width: $tablet) {
+    padding: 17px 20px 19px;
+    font-size: 18px;
+    line-height: 21px;
+  }
+}
+
+.tags-list {
+  display: flex;
+}
+
+.tags-item {
+  font-style: $normal;
+  font-weight: $black;
+  font-size: 10px;
+  line-height: 12px;
+  color: $bg-purple;
+  @media screen and (min-width: $tablet) {
+    mfont-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.tags-item:not(:last-child) {
+  margin-right: 15px;
+}
+.tags-container {
+  display: flex;
+  align-items: baseline;
+  padding: 0px 24px 2px;
+
+  @media screen and (min-width: $tablet) {
+    padding: 0px 80px 0px 20px;
+  }
+}
+
+.tags-info {
+  font-style: $normal;
+  font-weight: $black;
+  font-size: 12px;
+  line-height: 14px;
+  margin-right: 10px;
+
+  color: $main-purple;
+  @media screen and (min-width: $tablet) {
+    margin-right: 15px;
+    font-family: $Roboto;
+    font-style: $normal;
+    font-weight: $black;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: $main-purple;
+  }
+}
+
+.main-dashboard-like {
+  padding: 7px 24px;
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: $tablet) {
+    padding: 7px 20px;
+    position: absolute;
+    top: 15px;
+    left: 34px;
+  }
+}
+
+.main-dashboard-container-textarea {
+  width: 100%;
+  min-height: 100px;
+  resize: none;
+}
+
+.main-dashboard-counter {
+  font-family: $Roboto;
+  font-style: $normal;
+  font-weight: $black;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: rgba(89, 33, 133, 0.5);
+}
+
+.main-dashboard-counter:not(:last-child) {
+  margin-right: 20px;
+}
+
+.icon-like,
+.icon-coments {
+  margin-right: 8px;
+}
+
+.is-active {
+  border-bottom: 4px solid $main-blue;
+}
+
+.is-active-link {
+  color: $main-blue;
+}
