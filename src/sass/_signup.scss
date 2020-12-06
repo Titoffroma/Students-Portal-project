@@ -1,5 +1,5 @@
-.register-section {
-  padding: 148px 20px 0;
+.signup-section {
+  padding: 120px 20px 0;
 
   background-image: url('../img/portal-bg@1x.png');
   background-repeat: no-repeat;
@@ -14,15 +14,15 @@
   }
 
   @media screen and (min-width: $tablet) {
-    padding-top: 200px;
+    padding-top: 150px;
   }
 
   @media screen and (min-width: $desktop) {
-    padding-top: 100px;
+    padding-top: 50px;
   }
 }
 
-.register-container {
+.signup-container {
   margin-left: auto;
   margin-right: auto;
   width: 335px;
@@ -49,7 +49,7 @@
   }
 }
 
-.register-container__title {
+.signup-container__title {
   margin: 26px 0;
   font-size: 24px;
 
@@ -59,11 +59,11 @@
   }
 
   @media screen and (min-width: $desktop) {
-    margin: 54px 0;
+    margin: 40px 0;
   }
 }
 
-.register-container__form {
+.signup-container__form {
   padding: 30px 67px;
   width: 100%;
   text-align: left;
@@ -86,13 +86,19 @@
   margin-bottom: 25px;
   padding: 17px 0 9px 15px;
 
-  border: 2px solid #726180;
+  border: 2px solid $secondary-purple;
   border-radius: 8px;
 
   font-weight: normal;
   font-size: 12px;
 
-  color: $border;
+  color: #736296;
+  outline: none;
+
+  &:focus {
+    background: $grey;
+    border: 2px solid $main-purple;
+  }
 
   @media screen and (min-width: $tablet) {
     margin-bottom: 30px;
@@ -100,8 +106,49 @@
   }
 
   @media screen and (min-width: $desktop) {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
     font-size: 18px;
+  }
+}
+
+.form-field.valid {
+  color: $main-blue;
+
+  & .form-input {
+    border: 2px solid $secondary-blue;
+  }
+
+  & .form-input:focus {
+    border: 2px solid $main-blue;
+  }
+
+  &:focus-within .form-label {
+    color: $main-blue;
+  }
+
+  & .form-label {
+    color: $main-blue;
+  }
+}
+
+.form-field.invalid,
+.form-field.confirm.invalid {
+  color: $main-red;
+
+  & .form-input {
+    border: 2px solid $secondary-red;
+  }
+
+  & .form-input:focus {
+    border: 2px solid $main-red;
+  }
+
+  &:focus-within .form-label {
+    color: $main-red;
+  }
+
+  & .form-label {
+    color: $main-red;
   }
 }
 
@@ -112,9 +159,9 @@
 
   font-weight: normal;
   font-size: 12px;
-  color: rgba(115, 98, 150, 0.6);
+  color: #736296;
 
-  transition: color 250ms $transition, transform 250ms $transition;
+  transition: color $transition, transform $transition;
 
   .form-field:focus-within &,
   .form-input:not(:placeholder-shown) + & {
@@ -141,7 +188,7 @@
   }
 }
 
-.login-button {
+.submit-button {
   @extend %button;
   border: none;
 
@@ -170,15 +217,15 @@
   }
 }
 
-.register-container__footer {
+.signup-container__footer {
   @media screen and (min-width: $tablet) {
-    padding: 32px 57px 80px;
+    padding: 40px 57px 40px;
     display: flex;
     justify-content: space-around;
   }
 }
 
-.register-container__title.footer {
+.signup-container__title.footer {
   margin: 10px 0;
   font-size: 18px;
   color: $secondary-blue;
@@ -189,7 +236,7 @@
   }
 }
 
-.register-container__link {
+.signup-container__link {
   display: block;
   margin-bottom: 26px;
   font-size: 20px;
@@ -200,5 +247,35 @@
   @media screen and (min-width: $tablet) {
     margin: 0;
     font-size: 24px;
+  }
+}
+
+.signup-container__subtitle {
+  margin-bottom: 10px;
+
+  font-weight: 500;
+  font-size: 12px;
+  color: $main-purple;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+  }
+}
+
+.form-field.confirm:focus-within .form-label,
+.form-input.confirm-password:not(:placeholder-shown) + .form-label {
+  transform: translate(0, 12px);
+  color: $main-purple;
+
+  @media screen and (min-width: $tablet) {
+    transform: translate(0, 15px);
+  }
+
+  @media screen and (min-width: $desktop) {
+    transform: translate(0, 10px);
   }
 }
