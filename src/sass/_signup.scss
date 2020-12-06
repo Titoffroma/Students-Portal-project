@@ -1,0 +1,306 @@
+.signup-section {
+  padding: 120px 20px 0;
+
+  background-image: url('../img/portal-bg@1x.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    & {
+      background-image: url('../img/portal-bg@2x.png');
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 150px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    padding-top: 50px;
+  }
+}
+
+.signup-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 335px;
+  min-height: 380px;
+
+  background: $white;
+  border: 1px solid $main-blue;
+  box-shadow: -4px 4px 16px 4px rgba(42, 0, 94, 0.25);
+  border-radius: 16px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.17;
+  color: $main-blue;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    width: 514px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 610px;
+  }
+}
+
+.signup-container__title {
+  margin: 26px 0;
+  font-size: 24px;
+
+  @media screen and (min-width: $tablet) {
+    margin: 49px 0;
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin: 40px 0;
+  }
+}
+
+.signup-container__form {
+  padding: 30px 67px;
+  width: 100%;
+  text-align: left;
+
+  border-top: 1px solid $main-blue;
+  border-bottom: 1px solid $main-blue;
+
+  @media screen and (min-width: $tablet) {
+    padding: 56px 105px 20px;
+  }
+}
+
+.form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  margin-bottom: 25px;
+  padding: 17px 0 9px 15px;
+
+  border: 2px solid $secondary-purple;
+  border-radius: 8px;
+
+  font-weight: normal;
+  font-size: 12px;
+
+  color: #736296;
+  outline: none;
+
+  &:focus {
+    background: $grey;
+    border: 2px solid $main-purple;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: 45px;
+    font-size: 18px;
+  }
+}
+
+.form-field.valid,
+.form-field.confirm.valid {
+  color: $secondary-blue;
+
+  & .form-input {
+    border: 2px solid $secondary-blue;
+    color: $secondary-blue;
+  }
+
+  & .form-input:focus {
+    border: 2px solid $main-blue;
+  }
+
+  &:focus-within .form-label,
+  &:focus-within .form-icon-valid,
+  & .form-input:not(:placeholder-shown) + .form-label {
+    color: $main-blue;
+  }
+
+  & .form-label {
+    color: $secondary-blue;
+  }
+
+  & .form-icon-valid {
+    opacity: 1;
+    color: $secondary-blue;
+  }
+}
+
+.form-field.invalid,
+.form-field.confirm.invalid {
+  color: $main-red;
+
+  & .form-input {
+    border: 2px solid $secondary-red;
+    color: $secondary-red;
+  }
+
+  & .form-input:focus {
+    border: 2px solid $main-red;
+  }
+
+  &:focus-within .form-label,
+  &:focus-within .form-icon-invalid,
+  & .form-input:not(:placeholder-shown) + .form-label {
+    color: $main-red;
+  }
+
+  & .form-label {
+    color: $secondary-red;
+  }
+
+  & .form-icon-invalid {
+    opacity: 1;
+    color: $secondary-red;
+  }
+}
+
+.form-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(15px, -100%);
+
+  font-weight: normal;
+  font-size: 12px;
+  color: #736296;
+
+  transition: color $transition, transform $transition;
+
+  .form-field:focus-within &,
+  .form-input:not(:placeholder-shown) + & {
+    transform: translate(0, -50px);
+    color: $main-purple;
+
+    @media screen and (min-width: $tablet) {
+      transform: translate(0, -60px);
+    }
+
+    @media screen and (min-width: $desktop) {
+      transform: translate(0, -70px);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    transform: translate(15px, -120%);
+    font-size: 18px;
+  }
+}
+
+.form-icon-valid,
+.form-icon-invalid {
+  opacity: 0;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+
+.submit-button {
+  @extend %button;
+  border: none;
+
+  &.disabled {
+    background: $grey;
+    border: 1px solid $main-blue;
+
+    &:hover,
+    &:focus {
+      filter: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.5));
+  }
+
+  &:active {
+    background: $dark-blue;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin-top: 15px;
+    font-size: 24px;
+  }
+}
+
+.signup-container__footer {
+  @media screen and (min-width: $tablet) {
+    padding: 40px 57px 40px;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.signup-container__title.footer {
+  margin: 10px 0;
+  font-size: 18px;
+  color: $secondary-blue;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    font-size: 24px;
+  }
+}
+
+.signup-container__link {
+  display: block;
+  margin-bottom: 26px;
+  font-size: 20px;
+  line-height: 1.15;
+
+  color: $main-blue;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    font-size: 24px;
+  }
+}
+
+.signup-container__subtitle {
+  margin-bottom: 10px;
+
+  font-weight: 500;
+  font-size: 12px;
+  color: $main-purple;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 18px;
+  }
+}
+
+.form-field.confirm:focus-within .form-label,
+.form-input.confirm-password:not(:placeholder-shown) + .form-label {
+  transform: translate(0, 12px);
+  color: $main-purple;
+
+  @media screen and (min-width: $tablet) {
+    transform: translate(0, 15px);
+  }
+
+  @media screen and (min-width: $desktop) {
+    transform: translate(0, 10px);
+  }
+}
