@@ -1,0 +1,45 @@
+{{#each this}}
+<div class="edit-profile">
+    <form action="" class="form-edit-profile">
+        <div>
+            <button class="btn-edit-profile">Save changes </button>
+        </div>
+        <form action="" class="avatar-container-add">
+            {{> ./avatar-card}}
+            <input id="avatar-img-add" type="file" name="avatar-img" accept="image/*">
+            <button class="btn-load-img btn">Load new</button>
+            <button class="btn-delete-img btn">Delete</button>
+        </form>
+        <div class="skills-container-add">
+            <div class="skills-container">
+                <h2 class="skills-container__title">My skills</h2>
+                <ul class="skills-container__list">
+                    {{#each skills}}
+                    <li class="skills-container__item">
+                        <span class="skils-subtittle-text">{{name}}</span>
+                        <button class="btn-skill-delete">
+                            <i class="material-icons">delete_forever</i>
+                        </button>
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+            <form action="" class="form-skills-add">
+                <h2 class="form-skills-add__title">Add skills</h2>
+                <input type="text" class="input-skill-add">
+                <button type="subscribe" class="btn-skill-add btn">Add</button>
+            </form>
+
+        </div>
+        <div class="about-me-container">
+            <form action="" class="form-about-me">
+                <h2 class="about-me-form__title">About me</h2>
+                <textarea name="about-me" id="about-me-text" cols="30" rows="10"></textarea>
+                <button type="subscribe" class="btn-add-about-me btn">Edit</button>
+            </form>
+        </div>
+
+    </form>
+</div>
+{{/each}}
